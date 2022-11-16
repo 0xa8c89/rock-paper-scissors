@@ -1,8 +1,8 @@
 function getComputerChoice() {
-	const number = Math.floor(Math.random() * 3 + 1);
-	if (number === 1)
+	const number = Math.floor(Math.random() * 3);
+	if (number === 0)
 		return "rock";
-	else if (number === 2)
+	else if (number === 1)
 		return "paper";
 	else
 		return "scissors";
@@ -68,4 +68,5 @@ function game() {
 	}
 }
 
-game();
+for (let i = 0; i < 10; ++i)
+	console.log(getComputerChoice())
