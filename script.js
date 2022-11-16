@@ -1,4 +1,4 @@
-function GetComputerChoice() {
+function getComputerChoice() {
 	const number = Math.floor(Math.random() * 3 + 1);
 	if (number === 1)
 		return "rock";
@@ -9,28 +9,63 @@ function GetComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-	playerSelection = playerSelection.toLowerCase();
-	
-	console.log(playerSelection, computerSelection)
-	
-	// rock and scissors
+
+	//	rock and scissors
 	if (playerSelection === "rock" && computerSelection === "scissors")
-		console.log("You Win! Rock beats Scissors!");
+		return "You Win! Rock beats Scissors!";
 	else if (playerSelection === "scissors" && computerSelection === "rock")
-		console.log("You Lose! Rock beats Scissors!");
+		return "You Lose! Rock beats Scissors!";
 
-	// scissors and paper
+	//	scissors and paper
 	else if (playerSelection === "scissors" && computerSelection === "paper")
-		console.log("You Win! Scissors beat Paper!");
+		return "You Win! Scissors beat Paper!";
 	else if (playerSelection === "paper" && computerSelection === "scissors")
-		console.log("You Lose! Scissors beat Paper!");
+		return "You Lose! Scissors beat Paper!";
 
-	// paper and rock
+	//	paper and rock
 	else if (playerSelection === "paper" && computerSelection === "rock")
-		console.log("You Win! Paper beats Rock!");
+		return "You Win! Paper beats Rock!";
 	else if (playerSelection === "rock" && computerSelection === "paper")
-		console.log("You Lose! Paper beats Rock!");
+		return "You Lose! Paper beats Rock!";
 	
 	else
-		console.log("Tie!");
+		return "Tie!";
 }
+
+// test
+// for (let i = 0; i < 10; ++i) {
+// 	const playerSelection = getComputerChoice();
+// 	const computerSelection = getComputerChoice();
+// 	console.log(playerSelection, computerSelection);
+// 	console.log(playRound(playerSelection, computerSelection));
+// }
+
+function game() {
+	let playerWins = 0;
+	let computerWins = 0;
+	let possibleSelection = ["rock", "paper", "scissors"];
+	
+	for (let i = 0; i < 5; ++i) {
+		// get input
+		let playerSelection = prompt("enter rock, paper or scissors").toLowerCase();
+
+		// check for bad input
+		while (possibleSelection.indexOf(playerSelection) == -1) {
+			alert("Bad input!");
+			playerSelection = prompt("enter rock, paper or scissors").toLocaleLowerCase();
+		}
+
+		let result = playRound(playerSelection, getComputerChoice());
+		alert(result);
+		
+		// calculate score
+		if (result.toLowerCase().startsWith("you win!"))
+			++playerWins;
+		if (result.toLowerCase().startsWith("you lose!"))
+			++computerWins;
+		
+		console.log(playerWins, " : ", computerWins);
+	}
+}
+
+game();
