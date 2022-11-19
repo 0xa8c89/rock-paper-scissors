@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* Choice of colors isn't politically motivated (implying */
+    background: linear-gradient(#e66465, #9198e5);
+    min-height: 100vh;
+}
+header {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 2em;
+}
+.container {
+    display: flex;
+    justify-content:center;
+}
+button {
+    margin: 2em 1em;
+    padding: 1em 1em ;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(to bottom, rgb(0, 255, 170), rgb(0, 191, 255));
+}
+#result {
+    text-align: center;
+    font-size: 1.5em;
+}
+#score {
+    text-align: center;
+    margin-top: 1em;
+}
